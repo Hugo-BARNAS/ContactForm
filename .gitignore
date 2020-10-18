@@ -22,4 +22,4 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-src/shared/config.js
+../src/frontend/backend/shared/config.js

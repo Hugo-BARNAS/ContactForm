@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import db from "../shared/db";
 export default {
   data() {
     return {
@@ -32,12 +33,32 @@ export default {
       },
     };
   },
+  // eslint-disable-next-line
   methods: {
-      createContact(){
-          console.log(this.contact)
-      }
+    createContact() {
+      db.create(this.contact)
+        .then((data) => {
+          console.log(data);
+          //Méthode resetForm dans la méthode createContact juste après avoir insérer les données dans la bdd
+          this.resetForm();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    //Effacer les champs après l'envoi des données dans la bdd, on crée une méthode
+    resetForm() {
+      (this.contact.firstName = ""),
+        (this.contact.lastName = ""),
+        (this.contact.email = ""),
+        (this.contact.phone = "");
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+h2 {
+  color: green;
+}
+</style>
