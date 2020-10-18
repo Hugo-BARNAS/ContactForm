@@ -2,6 +2,8 @@
 ![](https://img.shields.io/badge/JavaScript-inactive?logo=JavaScript)
 ![](https://img.shields.io/badge/Node.js-inactive?logo=Node.js&color=brightgreen)
 ![](https://img.shields.io/badge/Vue.js?logo=Vue.js&color=green)
+![](https://img.shields.io/badge/Firebase?logo=Firebase&color=yellow)
+
 <p>
 
 <img src="https://user-images.githubusercontent.com/57058997/96036427-ba4c1980-0e64-11eb-9dd3-6845dd430fc0.png" height="50">
