@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/JavaScript-inactive?logo=JavaScript)
 ![](https://img.shields.io/badge/Node.js-inactive?logo=Node.js&color=brightgreen)
 ![](https://img.shields.io/badge/Vue.js?logo=Vue.js&color=green)
-![](https://img.shields.io/badge/Firebase?logo=Firebase&color=yellow)
+![](https://img.shields.io/badge/Firebase-inactive?logo=Firebase&color=yellow)
 
 <p>
 
