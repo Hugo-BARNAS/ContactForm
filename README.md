@@ -16,7 +16,7 @@
 
 ## Table of contents:
 * [General info](#general-info)
-* [Screenshots](#screenshots)
+* [Videos](#Videos)
 * [Demo](#demo)
 * [Technologies](#Technologies)
 * [Contact](#contact)
@@ -29,7 +29,9 @@
 
 ## Video:
 > Vue.js
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/57058997/96373438-bd008480-116c-11eb-9906-8427bd91c0ff.gif)
 > Firebase 
+![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/57058997/96373434-b3771c80-116c-11eb-9134-f08549af369c.gif)
 
 ## What I leaned and practiced :
 * JavaScript
