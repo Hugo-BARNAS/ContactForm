@@ -2,7 +2,11 @@
   <div id="app">
     <ContactForm />
     <!-- On écoute l'évent deleteContact et quand cet événement se produit on applique une méthode appelé deleteContact-->
-    <ContactList @deleteContact="deleteContact" :contacts="contacts" />
+    <ContactList
+      @saveEdit="saveEdit"
+      @deleteContact="deleteContact"
+      :contacts="contacts"
+    />
   </div>
 </template>
 
@@ -46,17 +50,23 @@ export default {
           console.error(error);
         });
     },
-  },
-};
+    saveEdit(editedContact){
+      db.update(editedContact)
+        .then(() => {
+          this.getAllContacts();
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+        console.log(this.saveEdit)
+      }
+    }
+  }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>

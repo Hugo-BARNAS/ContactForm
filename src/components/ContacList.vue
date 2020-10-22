@@ -1,23 +1,24 @@
 <template>
   <div>
-    <ul>
-      <li v-for="contact in contacts" :key="contact.contacts">
-        {{ contact.data().firstName }} {{ contact.data().lastName }}
-        <!-- Appeler une méthode avec un paramètre au click qui est une fonction qui va émettre la méthode deleteContact-->
-        <button @click="deleteContact(contact)">X</button>
-      </li>
-    </ul>
+    <contactDetails :contact="contact" v-for='contact in contacts' :key="contact.data().id" @saveEdit="saveEdit" @deleteContact="deleteContact"></contactDetails>
   </div>
 </template>
 
 <script>
+import contactDetails from './ContactDetails'
 export default {
   props: ["contacts"],
+  components:{
+    contactDetails
+  },
   methods: {
     deleteContact(contact){
       //il va emmetre l'événement deleteContact et l'élément contact qu'on veut supprimer
       this.$emit('deleteContact', contact)
-    }
+    },
+    saveEdit(editedContact){
+      this.$emit('saveEdit', editedContact)
+    },
   }
 };
 </script>
@@ -25,5 +26,9 @@ export default {
 <style scoped>
 li {
   list-style: none;
+}
+
+div{
+  margin:5vh 20vw 5vh 20vw;
 }
 </style>
