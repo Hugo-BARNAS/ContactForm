@@ -14,7 +14,7 @@
         type="text"
         placeholder="téléphone"
         v-model="contact.phone"
-      /><br />
+      /><br><br>
       <button type="submit">Créer</button>
     </form>
   </div>

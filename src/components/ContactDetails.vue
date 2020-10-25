@@ -1,9 +1,11 @@
 <template>
   <div>
-    <div v-if='!isInEditMode'>
+    <div v-if="!isInEditMode">
       <b-card title="Fiche d'identité">
         <b-card-text>
-        {{ contact.data().firstName }} {{ contact.data().lastName }}
+          <router-link :to="{ name: 'contact', params: { id: contact.id } }">
+            {{ contact.data().firstName }} {{ contact.data().lastName }}
+          </router-link>
         </b-card-text>
         <b-card-text>Téléphone : {{ contact.data().phone }}</b-card-text>
         <b-card-text>Email : {{ contact.data().email }}</b-card-text>
@@ -13,10 +15,20 @@
         </div>
       </b-card>
     </div>
-    <div v-if='isInEditMode'>
+    <div v-if="isInEditMode">
       <b-card title="Fiche d'identité">
-        <b-form-input class="bform" type="text" v-model="contactCopy.firstName" name="" id="" />
-        <b-form-input class="bform" type="text" v-model="contactCopy.lastName" />
+        <b-form-input
+          class="bform"
+          type="text"
+          v-model="contactCopy.firstName"
+          name=""
+          id=""
+        />
+        <b-form-input
+          class="bform"
+          type="text"
+          v-model="contactCopy.lastName"
+        />
         <b-form-input class="bform" type="text" v-model="contactCopy.email" />
         <b-form-input class="bform" type="text" v-model="contactCopy.phone" />
         <b-card-text>
@@ -45,27 +57,27 @@ export default {
   },
   props: ["contact"],
   methods: {
-    cancelEdit(){
-    this.isInEditMode = false;
+    cancelEdit() {
+      this.isInEditMode = false;
     },
     editContact() {
       //destructuring
-      const { firstName, lastName, phone, email} = this.contact.data();
+      const { firstName, lastName, phone, email } = this.contact.data();
       this.contactCopy = {
-        id :this.contact.id,
+        id: this.contact.id,
         firstName,
         lastName,
         phone,
-        email
+        email,
       };
       console.log(this.contactCopy);
-    this.isInEditMode = true;
+      this.isInEditMode = true;
     },
     deleteContact() {
-      this.$emit('deleteContact', this.contactCopy)
+      this.$emit("deleteContact", this.contactCopy);
     },
     saveEdit() {
-      this.$emit('saveEdit', this.contactCopy)
+      this.$emit("saveEdit", this.contactCopy);
       this.isInEditMode = false;
     },
   },
@@ -73,8 +85,8 @@ export default {
 </script>
 
 <style scoped>
-button, .bform {
+button,
+.bform {
   margin: 0.5vh;
 }
-
 </style>
